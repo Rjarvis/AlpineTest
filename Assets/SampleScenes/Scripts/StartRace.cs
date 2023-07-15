@@ -15,19 +15,29 @@ public class StartRace : MonoBehaviour
     [SerializeField] private GameObject currentRacerGO;
     [SerializeField] private CarController m_CarController;
     [SerializeField] private GameObject FinishLine;
+    [SerializeField] private GameObject Fireworks;
 
+    private bool fireWorksLit;
     private void LateUpdate()
     {
         //Get on Input.SpaceBar
         if (Input.GetKeyUp(KeyCode.Space)) StartEngine();
         if (m_CarController)
         {
-            if (FinishedRace())
+            if (FinishedRace() && m_CarController.CurrentSpeed >= 10f)
             {
-                if (m_CarController.CurrentSpeed >= 10f) m_CarController.Move(0f, 0f, currentRacerData.acceleration*-10f, 0f);
+                if (!fireWorksLit) LightFireWorks();
+                m_CarController.Move(0f, 0f, currentRacerData.acceleration*-10f, 0f);
             }
-            else if(!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
+            else if (!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
         }
+    }
+
+    private void LightFireWorks()
+    {
+        fireWorksLit = true;
+        Fireworks.TryGetComponent(out ParticleSystem particleSystem);
+        if (particleSystem) particleSystem.Play();
     }
 
     private bool FinishedRace()
@@ -37,6 +47,7 @@ public class StartRace : MonoBehaviour
 
     public void StartEngine()
     {
+        fireWorksLit = false;
         currentRacerData = GetRacer();
         BuildCar(currentRacerData);
         m_FreeLookCam.SetTarget(currentRacerGO.transform);
