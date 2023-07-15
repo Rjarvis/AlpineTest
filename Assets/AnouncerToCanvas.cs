@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class AnouncerToCanvas : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Get Columns
+    //Get ActiveCar
+    //Compare positions
 }

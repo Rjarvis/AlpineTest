@@ -3,7 +3,12 @@ guid: 33b6a6c042f998349a53223dc201bdcb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - carAIGO: {fileID: 1398924999, guid: 2e25d11b718f924418b1a82760ba0c0e, type: 3}
+  - startPoint: {instanceID: 0}
+  - currentRacerGO: {instanceID: 0}
+  - m_DriverStats: {instanceID: 0}
+  - m_FreeLookCam: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

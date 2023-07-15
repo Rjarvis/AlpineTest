@@ -7,25 +7,26 @@ public class DriverStats : MonoBehaviour
     private CarController m_CarController;
     private RacerData m_RacerData;
     private bool m_isCarBodyNull;
+    private bool m_isCarControllerNull;
 
     private void Start()
     {
         m_isCarBodyNull = carBody == null;
+        m_isCarControllerNull = m_CarController == null;
     }
 
     public void DriverStatsSetup(RacerData racerData)
     {
+        m_RacerData = racerData;
         transform.name += $"({racerData.name})";
         SetColor(racerData.color);
-        RunCar(racerData);
     }
 
-    private void RunCar(RacerData racerData)
+    public void RunCar()
     {
-        CarController carController = gameObject.GetComponent<CarController>();
-        carController.Initialize();
-        m_CarController = carController;
-        m_RacerData = racerData;
+        gameObject.TryGetComponent(out m_CarController);
+        if (!m_CarController) return;
+        m_CarController.Initialize();
     }
 
     private void SetColor(Color color)

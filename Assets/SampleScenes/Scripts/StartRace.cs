@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityStandardAssets.Cameras;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PrepRace))]
@@ -6,13 +7,11 @@ public class StartRace : MonoBehaviour
 {
     [SerializeField] private GameObject carAIGO;
     [SerializeField] private Transform startPoint;
+    [SerializeField] private FreeLookCam m_FreeLookCam;
+    [SerializeField] private RacerData currentRacerData;
+    [SerializeField] private DriverStats m_DriverStats;
     [SerializeField] private GameObject currentRacerGO;
-    private RacerData currentRacerData;
-
-    private void Start()
-    {
-        
-    }
+    
 
     private void LateUpdate()
     {
@@ -21,6 +20,8 @@ public class StartRace : MonoBehaviour
         {
             currentRacerData = GetRacer();
             BuildCar(currentRacerData);
+            m_FreeLookCam.SetTarget(currentRacerGO.transform);
+            m_DriverStats.RunCar();
         }
     }
 
@@ -29,9 +30,8 @@ public class StartRace : MonoBehaviour
     {
         if(currentRacerGO) DestroyImmediate(currentRacerGO);
         GameObject car = Instantiate(carAIGO, startPoint.position, startPoint.rotation);
-        // DriverStats stats = 
-            car.TryGetComponent<DriverStats>(out var driverStats);
-        driverStats.DriverStatsSetup(racer);
+        car.TryGetComponent<DriverStats>(out m_DriverStats);
+        m_DriverStats.DriverStatsSetup(racer);
         currentRacerGO = car;
     }
 
