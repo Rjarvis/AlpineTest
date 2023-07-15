@@ -266,7 +266,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carAIGO: {fileID: 1398924999, guid: 2e25d11b718f924418b1a82760ba0c0e, type: 3}
   startPoint: {fileID: 85649542}
+  m_FreeLookCam: {fileID: 1039336971}
+  m_DriverStats: {fileID: 0}
   currentRacerGO: {fileID: 0}
+  m_CarController: {fileID: 0}
+  FinishLine: {fileID: 440639207}
+  Fireworks: {fileID: 536715481}
 --- !u!114 &144894093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f5ae0898ac114c827a475bda23a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StartRace: {fileID: 144894092}
 --- !u!1 &145652150
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +390,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 1e-45, z: 3.14e-42, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 1e-45, z: 6.604e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -578,6 +584,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 44884af1ac1d64d42902da40268ba120,
     type: 3}
   m_PrefabInstance: {fileID: 1501267580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &440639207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 44884af1ac1d64d42902da40268ba120,
+    type: 3}
+  m_PrefabInstance: {fileID: 924138346}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &451041874 stripped
 Transform:
@@ -999,6 +1011,18 @@ PrefabInstance:
       addedObject: {fileID: 2072390087}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44884af1ac1d64d42902da40268ba120, type: 3}
+--- !u!114 &1039336971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11400000, guid: 49a0e923d39ec3c4c8bb97699e2f2903,
+    type: 3}
+  m_PrefabInstance: {fileID: 1302670857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44af8091779fcb40801d5b284353dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1080345702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,7 +1859,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1765084876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 144894092}
+        m_TargetAssemblyTypeName: StartRace, Assembly-CSharp
+        m_MethodName: StartEngine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1765084876
 MonoBehaviour:
   m_ObjectHideFlags: 0
