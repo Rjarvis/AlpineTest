@@ -16,13 +16,15 @@ public class StartRace : MonoBehaviour
     private void LateUpdate()
     {
         //Get on Input.SpaceBar
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            currentRacerData = GetRacer();
-            BuildCar(currentRacerData);
-            m_FreeLookCam.SetTarget(currentRacerGO.transform);
-            m_DriverStats.RunCar();
-        }
+        if (Input.GetKeyUp(KeyCode.Space)) StartEngine();
+    }
+
+    public void StartEngine()
+    {
+        currentRacerData = GetRacer();
+        BuildCar(currentRacerData);
+        m_FreeLookCam.SetTarget(currentRacerGO.transform);
+        m_DriverStats.RunCar();
     }
 
     //Instantiate object
