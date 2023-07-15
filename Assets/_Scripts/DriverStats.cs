@@ -22,13 +22,6 @@ public class DriverStats : MonoBehaviour
         SetColor(racerData.color);
     }
 
-    public void RunCar()
-    {
-        gameObject.TryGetComponent(out m_CarController);
-        if (!m_CarController) return;
-        m_CarController.Initialize();
-    }
-
     private void SetColor(Color color)
     {
         if (m_isCarBodyNull) return;
@@ -36,10 +29,5 @@ public class DriverStats : MonoBehaviour
         if (!meshRenderer) return;
         var currentMat = meshRenderer.material;
         currentMat.SetColor("_Color", color);
-    }
-
-    private void LateUpdate()
-    {
-        m_CarController.Move(0f,m_RacerData.acceleration,0,0f);
     }
 }

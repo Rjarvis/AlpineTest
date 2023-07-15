@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityStandardAssets.Cameras;
+using UnityStandardAssets.Vehicles.Car;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PrepRace))]
@@ -11,12 +13,26 @@ public class StartRace : MonoBehaviour
     [SerializeField] private RacerData currentRacerData;
     [SerializeField] private DriverStats m_DriverStats;
     [SerializeField] private GameObject currentRacerGO;
-    
+    [SerializeField] private CarController m_CarController;
+    [SerializeField] private GameObject FinishLine;
 
     private void LateUpdate()
     {
         //Get on Input.SpaceBar
         if (Input.GetKeyUp(KeyCode.Space)) StartEngine();
+        if (m_CarController)
+        {
+            if (FinishedRace())
+            {
+                if (m_CarController.CurrentSpeed >= 10f) m_CarController.Move(0f, 0f, currentRacerData.acceleration*-10f, 0f);
+            }
+            else if(!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
+        }
+    }
+
+    private bool FinishedRace()
+    {
+        return currentRacerGO.transform.position.z >= FinishLine.transform.position.z;
     }
 
     public void StartEngine()
@@ -24,7 +40,14 @@ public class StartRace : MonoBehaviour
         currentRacerData = GetRacer();
         BuildCar(currentRacerData);
         m_FreeLookCam.SetTarget(currentRacerGO.transform);
-        m_DriverStats.RunCar();
+        RunCar();
+    }
+    
+    public void RunCar()
+    {
+        m_DriverStats.TryGetComponent(out m_CarController);
+        if (!m_CarController) return;
+        m_CarController.Initialize();
     }
 
     //Instantiate object

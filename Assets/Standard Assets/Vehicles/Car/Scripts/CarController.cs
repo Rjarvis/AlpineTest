@@ -53,7 +53,7 @@ namespace UnityStandardAssets.Vehicles.Car
         public float CurrentSteerAngle => m_SteerAngle;
         private const float drivingPower = 2.23693629f;
 
-        public float CurrentSpeed => m_CurrentSpeed;
+        public float CurrentSpeed => m_Rigidbody.velocity.magnitude * drivingPower;
         public float MaxSpeed => m_Topspeed;
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
