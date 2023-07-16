@@ -284,7 +284,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f5ae0898ac114c827a475bda23a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointList:
+    Checkpoints:
+    - {fileID: 1510166235}
+    - {fileID: 2080149435}
+    - {fileID: 1824662500}
+    - {fileID: 440639207}
   m_StartRace: {fileID: 144894092}
+  m_DriverMessageText: {fileID: 1080345704}
 --- !u!1 &145652150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,6 +1485,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44884af1ac1d64d42902da40268ba120, type: 3}
+--- !u!1 &1510166235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 44884af1ac1d64d42902da40268ba120,
+    type: 3}
+  m_PrefabInstance: {fileID: 1703129492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1530839439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,6 +1923,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765084873}
   m_CullTransparentMesh: 0
+--- !u!1 &1824662500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 44884af1ac1d64d42902da40268ba120,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250139201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1897424042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 44884af1ac1d64d42902da40268ba120,
@@ -1983,4 +2002,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 44884af1ac1d64d42902da40268ba120,
     type: 3}
   m_PrefabInstance: {fileID: 1742148561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2080149435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 44884af1ac1d64d42902da40268ba120,
+    type: 3}
+  m_PrefabInstance: {fileID: 761301540}
   m_PrefabAsset: {fileID: 0}

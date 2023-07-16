@@ -9,11 +9,15 @@ public class StartRace : MonoBehaviour
 {
     [SerializeField] private GameObject carAIGO;
     [SerializeField] private Transform startPoint;
+    public Transform StartPoint => startPoint;
     [SerializeField] private FreeLookCam m_FreeLookCam;
-    [SerializeField] private RacerData currentRacerData;
+    private RacerData currentRacerData;
+    public RacerData CurrentRacer => currentRacerData;
     [SerializeField] private DriverStats m_DriverStats;
     [SerializeField] private GameObject currentRacerGO;
+    public GameObject CurrentRacerGameObject => currentRacerGO;
     [SerializeField] private CarController m_CarController;
+    public CarController CarController => m_CarController;
     [SerializeField] private GameObject FinishLine;
     [SerializeField] private GameObject Fireworks;
 
@@ -49,6 +53,7 @@ public class StartRace : MonoBehaviour
     {
         fireWorksLit = false;
         currentRacerData = GetRacer();
+        if (currentRacerData == null) return;
         BuildCar(currentRacerData);
         m_FreeLookCam.SetTarget(currentRacerGO.transform);
         RunCar();
