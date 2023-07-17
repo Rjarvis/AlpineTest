@@ -271,7 +271,7 @@ MonoBehaviour:
   currentRacerGO: {fileID: 0}
   m_CarController: {fileID: 0}
   FinishLine: {fileID: 440639207}
-  Fireworks: {fileID: 536715481}
+  Fireworks: {fileID: 536715484}
 --- !u!114 &144894093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.83e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 7.4e-44, z: 7.294e-42, w: 9.403955e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -679,6 +679,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 9.389725
   m_Center: {x: -0.09268737, y: -1.2117645, z: 10.712829}
+--- !u!198 &536715484 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800002, guid: 180149b1a35449044a27b451e816d2de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1353884005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &588959121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 8.26
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1452,8 +1458,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
+      propertyPath: cullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
+      propertyPath: SubModule.subEmitters.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 180149b1a35449044a27b451e816d2de, type: 3}
       propertyPath: playOnAwake
@@ -1481,6 +1499,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800012, guid: 180149b1a35449044a27b451e816d2de, type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -19,29 +19,44 @@ public class StartRace : MonoBehaviour
     [SerializeField] private CarController m_CarController;
     public CarController CarController => m_CarController;
     [SerializeField] private GameObject FinishLine;
-    [SerializeField] private GameObject Fireworks;
+    [SerializeField] private ParticleSystem Fireworks;
 
     private bool fireWorksLit;
-    private void LateUpdate()
+
+    private void FixedUpdate()
     {
-        //Get on Input.SpaceBar
-        if (Input.GetKeyUp(KeyCode.Space)) StartEngine();
         if (m_CarController)
         {
             if (FinishedRace() && m_CarController.CurrentSpeed >= 10f)
             {
-                if (!fireWorksLit) LightFireWorks();
-                m_CarController.Move(0f, 0f, currentRacerData.acceleration*-10f, 0f);
+                m_CarController.Move(0f, 0f, -1f, 0f);
             }
+            else if (FinishedRace() && m_CarController.CurrentSpeed < 10f && fireWorksLit == false) LightFireWorks();
             else if (!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
         }
+    }
+
+    private void LateUpdate()
+    {
+        //Quit the program
+        if (Input.GetKeyUp(KeyCode.Escape)) Application.Quit();
+        //Get on Input.SpaceBar
+        if (Input.GetKeyUp(KeyCode.Space)) StartEngine();
+        // if (m_CarController)
+        // {
+        //     if (FinishedRace() && m_CarController.CurrentSpeed >= 10f)
+        //     {
+        //         if (!fireWorksLit) LightFireWorks();
+        //         m_CarController.Move(0f, 0f, currentRacerData.acceleration*-1f, 0f);
+        //     }
+        //     else if (!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
+        // }
     }
 
     private void LightFireWorks()
     {
         fireWorksLit = true;
-        Fireworks.TryGetComponent(out ParticleSystem particleSystem);
-        if (particleSystem) particleSystem.Play();
+        Fireworks.Play();
     }
 
     private bool FinishedRace()

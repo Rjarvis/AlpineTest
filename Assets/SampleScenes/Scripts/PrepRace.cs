@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using static System.Int32;
@@ -16,11 +17,27 @@ public class PrepRace : MonoBehaviour
         ReadFileAtLocation();
     }
 
+    private void LateUpdate()
+    {
+        if (Input.GetKeyUp(KeyCode.L)) ReadFileAtLocation();
+    }
+
     private void ReadFileAtLocation()
     {
         //Get the raw csv data
-        var rawData = File.ReadAllText("Assets/Resources/drivers.csv");
+#if UNITY_EDITOR
+        var rawData = File.ReadAllText("Assets\\Resources\\drivers.csv");
+#else
+        var rawData = File.ReadAllText("AlpineTestProject_Data\\Resources\\drivers.csv");
+#endif
         
+        // var rawData = new StreamReader("Assets\\Resources\\drivers.csv");
+        if (rawData == null)
+        {
+            Debug.LogError("Could not find file in the resources folder!");
+            return;
+        }
+
         //Divide data by each new line \n
         var lines = rawData.Split("\n"[0]);
         

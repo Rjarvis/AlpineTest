@@ -51,12 +51,13 @@ public class AnouncerToCanvas : MonoBehaviour
                 {
                     //Passed Finish
                     m_DriverMessageText.text = $"{m_StartRace.CurrentRacer.name} passed finish";
+                    // Debug.LogError($"{m_StartRace.CurrentRacer.name} passed finish");
                     return;
                 }
 
                 //Announce to Canvas
                 m_DriverMessageText.text =
-                    $"{m_StartRace.CurrentRacer.name}  passed checkpoint {(m_StartRace.StartPoint.position.z - m_ActiveCar.transform.position.z).ToString()}, {(m_StartRace.CarController.CurrentSpeed).ToString()}";
+                    $"{m_StartRace.CurrentRacer.name} passed checkpoint {(m_StartRace.StartPoint.position.z - m_ActiveCar.transform.position.z).ToString()}, {(m_StartRace.CarController.CurrentSpeed).ToString()}";
                 //POP out m_Zpoints[0]
                 m_Zpoints.RemoveAt(0);
             }
