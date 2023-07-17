@@ -29,9 +29,9 @@ public class StartRace : MonoBehaviour
         {
             if (FinishedRace() && m_CarController.CurrentSpeed >= 10f)
             {
+                if (!fireWorksLit) LightFireWorks();
                 m_CarController.Move(0f, 0f, -1f, 0f);
             }
-            else if (FinishedRace() && m_CarController.CurrentSpeed < 10f && fireWorksLit == false) LightFireWorks();
             else if (!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
         }
     }
