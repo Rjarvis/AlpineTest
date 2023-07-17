@@ -42,15 +42,6 @@ public class StartRace : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape)) Application.Quit();
         //Get on Input.SpaceBar
         if (Input.GetKeyUp(KeyCode.Space)) StartEngine();
-        // if (m_CarController)
-        // {
-        //     if (FinishedRace() && m_CarController.CurrentSpeed >= 10f)
-        //     {
-        //         if (!fireWorksLit) LightFireWorks();
-        //         m_CarController.Move(0f, 0f, currentRacerData.acceleration*-1f, 0f);
-        //     }
-        //     else if (!FinishedRace()) m_CarController.Move(0, currentRacerData.acceleration, 0f, 0f);
-        // }
     }
 
     private void LightFireWorks()
